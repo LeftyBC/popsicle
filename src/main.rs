@@ -72,7 +72,9 @@ fn compiler_binaries_gcc(compiler_path: &Path) -> Option<Vec<PathBuf>> {
     let mut path_list = Vec::new();
 
     // cc1 is always needed to compile C code.
-    path_list.push(compiler_print_file_name(compiler_path, "cc1").unwrap()); // FIXME: panic!
+    if let Some(cc1) = compiler_print_file_name(compiler_path, "cc1") {
+        path_list.push(cc1);
+    }
 
     // The LTO plug-in may (or may not) be available.
     if let Some(lto_plugin) = compiler_print_file_name(compiler_path, "liblto_plugin.so") {
