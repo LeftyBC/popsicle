@@ -66,7 +66,7 @@ pub fn find_program<P: AsRef<Path>>(name: P, symlink_target: Option<&PathBuf>) -
 
     for path in ::std::env::split_paths(search_paths.as_str()) {
         if path.is_absolute() {
-            let full_path: PathBuf = [&path, name_path].into_iter().collect();
+            let full_path: PathBuf = [&path, name_path].iter().collect();
             // TODO: Also check that the file is executable (st_mode?)
             if let Some(target_dev_ino) = target_dev_ino {
                 let is_symlink = full_path

@@ -106,7 +106,7 @@ mod elf {
             let run_paths = self.run_paths.iter().map(String::as_str);
 
             for lib_dir in run_paths.chain(lib_dirs) {
-                let path: PathBuf = [lib_dir, lib].into_iter().collect();
+                let path: PathBuf = [lib_dir, lib].iter().collect();
                 if path.exists() {
                     return Some(path);
                 }
