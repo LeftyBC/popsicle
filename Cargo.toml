@@ -23,7 +23,7 @@ tar = "^0.4"
 xdg = "^2.0"
 
 [dependencies.goblin]
-version = "^0.0"
+version = "0.0.14"
 default-features = false
 features = ["std", "endian_fd"]
 
